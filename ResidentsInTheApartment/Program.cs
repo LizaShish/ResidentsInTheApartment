@@ -12,8 +12,6 @@ public class Program
 
         while (true)
         {
-                
-
             Console.WriteLine("Привет, выбери действие:\r\n1. Показать всех жильцов квартиры вместе с питомцами" +
                 "\r\n2. Показать отдельного жителя квартиры" +
                 "\r\n3. Добавить нового жильца/питомца" +
@@ -25,7 +23,6 @@ public class Program
 
             int choice = Convert.ToInt32(action);
 
-        
                 if (action.Equals("6", StringComparison.OrdinalIgnoreCase))
                 {
                     break;
@@ -36,7 +33,6 @@ public class Program
                     if (choice == 1)
                     {
                         apartment.PrintPersonsAndPets();
-
                     }
                     else if (choice == 2)
                     {
@@ -52,12 +48,10 @@ public class Program
                         {
                          Console.WriteLine("Неверное значение");
                         }
-
                     }
                     else if (choice == 3)
                     {
                         apartment.AddResident(Console.ReadLine());
-
                     }
                     else if (choice == 4)
                     {
@@ -68,26 +62,21 @@ public class Program
                         apartment.UpdateResident(ChangeResidentsId);
 
                     }
-
                     else if (choice == 5)
                     {
                         Console.WriteLine("Введите id жителя/питомца, которого необходимо удалить");
-                    //string deleteId = Console.ReadLine();
-                    //int deleteResidentsId = Convert.ToInt32(deleteId);
-                    int deleteId;
-                    if(int.TryParse(Console.ReadLine(), out deleteId))
-                    {
-                        apartment.DeleteResident(deleteId);
+                    
+                        int deleteId;
+                        if(int.TryParse(Console.ReadLine(), out deleteId))
+                        {
+                            apartment.DeleteResident(deleteId);
+                        }
                     }
-                        //apartment.DeleteResident(deleteResidentsId);
-                    }
-
                     else
                     {
                         Console.WriteLine("Некорректный выбор.");
                     }
                     action = Console.ReadLine();
-
                 }
         }
     }
