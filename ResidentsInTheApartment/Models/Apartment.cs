@@ -30,36 +30,6 @@ namespace ResidentsInTheApartment.Models
                 FirstName = "Cat",
             }
         };
-
-        /*public List<Person> Persons { get; set; } = new List<Person>
-        {
-
-            new Person
-            {
-                Id = 1,
-                FirstName = "Gay",
-                Age = 26,
-            },
-            new Person
-            {
-                Id = 2,
-                FirstName = "Galya",
-                Age = 74,
-            }
-        };
-        public List<Pet> Pets { get; set; } = new List<Pet>
-        {
-            new Pet
-            {
-                Id = 3,
-                FirstName = "Dog",
-            },
-            new Pet
-            {
-                Id = 4,
-                FirstName = "Cat",
-            }
-        };*/
         public void PrintPersonsAndPets()
         {
             Console.WriteLine("Residents");
