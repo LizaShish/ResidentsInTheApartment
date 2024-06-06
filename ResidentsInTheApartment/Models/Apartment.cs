@@ -1,6 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Office2010.Excel;
 using System.Net.Cache;
-
 namespace ResidentsInTheApartment.Models
 {
     internal class Apartment
@@ -12,7 +11,6 @@ namespace ResidentsInTheApartment.Models
                 Id = 1,
                 FirstName = "Gay",
                 Age = 26,
-
             },
             new Person
             {
@@ -21,7 +19,6 @@ namespace ResidentsInTheApartment.Models
                 Age = 74,
             }
         };
-
         public List<Pet> Pets { get; set; } = new List<Pet>
         {
             new Pet
@@ -35,7 +32,6 @@ namespace ResidentsInTheApartment.Models
                 FirstName = "Cat",
             }
         };
-
         public void PrintPersonsAndPets()
         {
             Console.WriteLine("Residents");
@@ -53,7 +49,6 @@ namespace ResidentsInTheApartment.Models
                     $"\nFirstName:{pet.FirstName}");
             }
         }
-
         public void PrintResident (int id)
         {
             foreach ( var person in Persons)
@@ -64,16 +59,14 @@ namespace ResidentsInTheApartment.Models
                     $"\nFirstName: {person.FirstName} " +
                     $"\nAge: {person.Age} ");
                 }
-              
             }
-
             foreach ( var pet in Pets)
             {
                if (pet.Id == id)
-                {
+               {
                     Console.WriteLine($"\nId: {pet.Id} " +
                    $"\nFirstName:{pet.FirstName}");
-                }
+               }
             }
         }
         private int GetNextId()

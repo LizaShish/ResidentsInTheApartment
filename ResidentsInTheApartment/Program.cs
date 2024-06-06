@@ -20,7 +20,6 @@ public class Program
                 "\r\n6. Выйти ");
         
             string action = Console.ReadLine();
-
             int choice = Convert.ToInt32(action);
 
                 if (action.Equals("6", StringComparison.OrdinalIgnoreCase))
@@ -60,7 +59,6 @@ public class Program
                         int ChangeResidentsId = Convert.ToInt32(IdPerson);
 
                         apartment.UpdateResident(ChangeResidentsId);
-
                     }
                     else if (choice == 5)
                     {
