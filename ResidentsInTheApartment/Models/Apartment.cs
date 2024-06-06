@@ -4,8 +4,36 @@ namespace ResidentsInTheApartment.Models
 {
     internal class Apartment
     {
-        public List<Person> Persons { get; set; } = new List<Person>
+        public List<ResidentBase> Residents { get; set; } = new List<ResidentBase>
         {
+             new Person
+            {
+                Id = 1,
+                FirstName = "Gay",
+                Age = 26,
+            },
+            new Person
+            {
+                Id = 2,
+                FirstName = "Galya",
+                Age = 74,
+            },
+
+             new Pet
+            {
+                Id = 3,
+                FirstName = "Dog",
+            },
+            new Pet
+            {
+                Id = 4,
+                FirstName = "Cat",
+            }
+        };
+
+        /*public List<Person> Persons { get; set; } = new List<Person>
+        {
+
             new Person
             {
                 Id = 1,
@@ -31,49 +59,33 @@ namespace ResidentsInTheApartment.Models
                 Id = 4,
                 FirstName = "Cat",
             }
-        };
+        };*/
         public void PrintPersonsAndPets()
         {
             Console.WriteLine("Residents");
-            foreach ( var person in Persons)
+            foreach ( var resident in Residents)
             {
-                Console.WriteLine($"\nId: {person.Id} " +
-                    $"\nFirstName: {person.FirstName} " +
-                    $"\nAge: {person.Age} ");
-            }
-            
-            Console.WriteLine("\nPets");
-            foreach (var pet in Pets)
-            {
-                Console.WriteLine($"\nId: {pet.Id} " +
-                    $"\nFirstName:{pet.FirstName}");
+                Console.WriteLine($"\nId: {resident.Id} " +
+                    $"\nFirstName: {resident.FirstName} " +
+                    $"\nAge: {resident.Age} ");
             }
         }
         public void PrintResident (int id)
         {
-            foreach ( var person in Persons)
+            foreach (var resident in Residents)
             {
-                if (person.Id == id)
+                if (resident.Id == id)
                 {
-                    Console.WriteLine($"\nId: {person.Id} " +
-                    $"\nFirstName: {person.FirstName} " +
-                    $"\nAge: {person.Age} ");
+                    Console.WriteLine($"\nId: {resident.Id} " +
+                    $"\nFirstName: {resident.FirstName} " +
+                    $"\nAge: {resident.Age} ");
                 }
-            }
-            foreach ( var pet in Pets)
-            {
-               if (pet.Id == id)
-               {
-                    Console.WriteLine($"\nId: {pet.Id} " +
-                   $"\nFirstName:{pet.FirstName}");
-               }
             }
         }
         private int GetNextId()
         {
-            int maxPersonId = Persons.Any() ? Persons.Max(p => p.Id) : 0;
-            int maxPetId = Pets.Any() ? Pets.Max(p => p.Id) : 0;
-            return Math.Max(maxPersonId, maxPetId) + 1;
+            int maxResidentId = Residents.Any() ? Residents.Max(p => p.Id) : 0;
+            return (maxResidentId) + 1;
         }
         public void AddResident(string? v)
         {
@@ -92,7 +104,7 @@ namespace ResidentsInTheApartment.Models
                 Age = newAge
             };
 
-            Persons.Add(newPerson);
+            Residents.Add(newPerson);
             Console.WriteLine($"Новый житель добавлен с Id: {newId}" +
               $"\nFirstName: {newName}" +
               $"\nAge: {newAge} ");
@@ -100,7 +112,7 @@ namespace ResidentsInTheApartment.Models
 
         public void UpdateResident(int id)
         {
-            var person = Persons.FirstOrDefault(p => p.Id == id);
+            var person = Residents.FirstOrDefault(p => p.Id == id);
             if (person != null)
             {
                 Console.WriteLine("Введите новое имя жильца:");
@@ -119,7 +131,7 @@ namespace ResidentsInTheApartment.Models
             }
             else
             {
-                var pet = Pets.FirstOrDefault(p => p.Id == id);
+                var pet = Residents.FirstOrDefault(p => p.Id == id);
                 if (pet != null)
                 {
                     Console.WriteLine("Введите новое имя питомца:");
@@ -135,18 +147,18 @@ namespace ResidentsInTheApartment.Models
 
         public void DeleteResident(int id)
         {
-            var person = Persons.FirstOrDefault(p => p.Id == id);
+            var person = Residents.FirstOrDefault(p => p.Id == id);
             if (person != null)
             {
-                Persons.Remove(person);
+                Residents.Remove(person);
                 Console.WriteLine("Жилец удален");
             }
             else
             {
-                var pet = Pets.FirstOrDefault(p => p.Id == id);
+                var pet = Residents.FirstOrDefault(p => p.Id == id);
                 if (pet != null)
                 {
-                    Pets.Remove(pet);
+                    Residents.Remove(pet);
                     Console.WriteLine("Питомец удален");
                 }
                 else

@@ -1,9 +1,7 @@
 ﻿namespace ResidentsInTheApartment.Models
 {
-    internal class Pet
+    internal class Pet:ResidentBase
     {
-
-        public string FirstName { get; internal set; }
-        public int Id { get; internal set; }
+        
     }
 }
