@@ -52,11 +52,13 @@ namespace ResidentsInTheApartment.Models
                 }
             }
         }
+
         private int GetNextId()
         {
             int maxResidentId = Residents.Any() ? Residents.Max(p => p.Id) : 0;
             return (maxResidentId) + 1;
         }
+
         public void AddResident(string? v)
         {
             Console.WriteLine("Введите имя новго жильца");
